@@ -1,10 +1,11 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
+const Manager = require("./lib/Manager.js");
+const Engineer = require("./lib/Engineer.js");
 // const Employee = require("./lib/Employee");
-const Intern = require("./lib/Intern");
+const Intern = require("./lib/Intern.js");
+const cardTemplates = require("./src/card-template.js");
 
 let mainElement = ``;
 
@@ -131,6 +132,25 @@ function createInternCard() {
   });
 }
 
+// array of questions to ask user
+const questionsArray = [
+  {
+    type: "input",
+    message: "What is the team member's name?",
+    name: "employeeName",
+  },
+  {
+    type: "input",
+    message: "What is the team member's ID?",
+    name: "employeeId",
+  },
+  {
+    type: "input",
+    message: "What is the team member's email address?",
+    name: "employeeEmail",
+  },
+];
+
 // Unique role questions
 const managerQuestion = [
   {
@@ -158,7 +178,6 @@ const internQuestion = [
 
 // Write information onto an HTM file
 function writeHTMLFile() {
-  a;
   const htmlFile = `
 <!DOCTYPE html>
 <html>
